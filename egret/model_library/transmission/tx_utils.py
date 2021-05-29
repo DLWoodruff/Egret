@@ -607,7 +607,6 @@ def validate_and_clean_cost_curve(curve, curve_type, p_min, p_max, gen_name, t=N
                 last_slope = (c2 - c1) / (o2 - o1)
                 continue
             this_slope = (c2 - c1) / (o2 - o1)
-            print(f"{gen_name},{this_slope}")
             if this_slope < last_slope and not math.isclose(this_slope, last_slope):
                 raise ValueError(f"Piecewise {curve_type} must be convex above p_min. " +
                                  f"Found non-convex piecewise {curve_type} for generator {gen_name} at time {t}")
